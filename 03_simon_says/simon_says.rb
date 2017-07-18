@@ -23,11 +23,16 @@ def first_word(string)
 	array = string.split(" ")
 	array[0]
 end
-
 def titleize (string)
+	string.capitalize!
+	do_not_cap = ["and", "or", "the", "over", "to", "a", "but", "for"]
 	array = string.split(" ")
-	array.map!a do |word|
-		word.capitalize
+	array.map! do |word|
+		if do_not_cap.include?(word)
+			word
+		else
+			word.capitalize
+		end
 	end
 	array.join(" ")
 end
