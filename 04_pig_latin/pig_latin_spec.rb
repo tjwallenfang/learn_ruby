@@ -19,7 +19,7 @@
 
 require "pig_latin"
 
-describe "#translate" do
+describe "translate" do
 
   it "translates a word beginning with a vowel" do
     s = translate("apple")
@@ -68,5 +68,13 @@ describe "#translate" do
   # Test-driving bonus:
   # * write a test asserting that capitalized words are still capitalized (but with a different initial capital letter, of course)
   # * retain the punctuation from the original phrase
+  it "maintains capitalization of words" do
+    s = translate("The apple John ate belonged to Tom")
+    expect(s).to eq("Ethay appleay Ohnjay ateay elongedbay otay Omtay")
+  end
 
+  it "retains punctuation of original" do
+    s = translate("Did the apple, which John ate, belong to Tom?")
+    expect(s).to eq("Idday ethay appleay, ichwhay Ohnjay ateay, elongbay otay Omtay?")
+  end
 end
